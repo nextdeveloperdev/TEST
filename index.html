@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Nexzora.lk - Premium A/L Platform</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #030303; 
+        html, body {
+            height: 100%;
+            overflow: hidden; /* no scrolling required on any device */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030303;
             color: #ffffff;
             margin: 0;
             padding: 0;
-            min-height: 100dvh; 
         }
-        
+
         .font-elegant {
             font-family: 'Playfair Display', serif;
         }
@@ -39,15 +42,20 @@
             box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
             transition: all 0.3s ease;
         }
+
+        /* Nav height is fixed and used to offset the hero so nothing hides behind it */
+        :root { --nav-h: clamp(52px, 9dvh, 76px); }
+        .nav-fixed { height: var(--nav-h); }
+        .hero-viewport { height: 100dvh; padding-top: var(--nav-h); }
     </style>
 </head>
 <body class="antialiased selection:bg-red-600 selection:text-white relative">
 
     <!-- Navigation Bar -->
-    <nav class="absolute w-full z-50 top-0 py-4 px-5 sm:px-12 lg:px-24 flex justify-between items-center glass-nav">
+    <nav class="nav-fixed fixed w-full z-50 top-0 px-5 sm:px-12 lg:px-24 flex justify-between items-center glass-nav">
         <!-- Logo Text -->
         <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-            <span class="font-bold text-lg sm:text-xl tracking-[0.2em] uppercase text-white drop-shadow-md">
+            <span class="font-bold text-base sm:text-lg lg:text-xl tracking-[0.2em] uppercase text-white drop-shadow-md">
             <span class="text-white-600">NEXZORA</span>.LK
             </span>
         </div>
@@ -67,72 +75,71 @@
                 <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors duration-300 text-lg"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
-        
+
         <!-- Mobile Actions -->
-        <div class="flex lg:hidden items-center space-x-4">
-            <div class="flex items-center space-x-4">
-                <a href="#" class="text-gray-400 hover:text-[#1877F2] transition-colors duration-300 text-lg"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors duration-300 text-lg"><i class="fa-brands fa-youtube"></i></a>
+        <div class="flex lg:hidden items-center space-x-3">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-[#1877F2] transition-colors duration-300 text-base"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors duration-300 text-base"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <button id="mobile-menu-btn" class="text-white text-xl focus:outline-none hover:text-red-500 transition-colors">
+            <button id="mobile-menu-btn" class="text-white text-lg focus:outline-none hover:text-red-500 transition-colors">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-[#0a0a0a]/98 backdrop-blur-2xl absolute w-full left-0 top-[65px] z-40 border-b border-white/5 shadow-2xl">
-        <div class="flex flex-col px-6 py-6 space-y-4 font-medium text-gray-400 tracking-widest uppercase text-xs">
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0a0a0a]/98 backdrop-blur-2xl fixed w-full left-0 z-40 border-b border-white/5 shadow-2xl" style="top: var(--nav-h);">
+        <div class="flex flex-col px-6 py-5 space-y-3 font-medium text-gray-400 tracking-widest uppercase text-xs">
             <a href="#" class="block hover:text-white transition-colors">Home</a>
             <a href="#" class="block hover:text-white transition-colors">Features</a>
             <a href="#" class="block hover:text-white transition-colors">Courses</a>
             <a href="#" class="block hover:text-white transition-colors">Support</a>
-            <div class="flex space-x-6 pt-4 border-t border-white/10">
+            <div class="flex space-x-6 pt-3 border-t border-white/10">
                 <a href="#" class="text-gray-400 hover:text-[#1877F2] text-xl"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#" class="text-gray-400 hover:text-[#FF0000] text-xl"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- Main Content Section -->
-    <section class="relative flex flex-col justify-start lg:justify-center px-5 sm:px-12 lg:px-24 w-full max-w-[1400px] mx-auto pt-20 pb-6 lg:pt-12 lg:pb-0 lg:min-h-[100dvh]">
-        
+    <!-- Main Content Section: locked to exact viewport height on every device -->
+    <section class="hero-viewport relative flex flex-col justify-center px-5 sm:px-12 lg:px-24 w-full max-w-[1400px] mx-auto overflow-hidden">
+
         <!-- Ambient Background Glows -->
         <div class="absolute top-[10%] right-[10%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] rounded-full bg-red-600/15 blur-[90px] pointer-events-none z-0"></div>
         <div class="absolute bottom-[10%] left-[5%] w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] rounded-full bg-white/5 blur-[110px] pointer-events-none z-0"></div>
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] z-0"></div>
 
         <!-- Grid Layout -->
-        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full gap-4 lg:gap-16">
-            
+        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full h-full gap-1 lg:gap-16 py-2 lg:py-0">
+
             <!-- LEFT SIDE: Text Content (And Mobile Image) -->
-            <div class="w-full lg:w-[55%] flex flex-col items-start">
-                
-                <!-- MOBILE LOGO (Visible ONLY on Mobile/Tablet, right above "The Pinnacle...") -->
-                <img src="logo.png" alt="Nexzora Logo" class="block lg:hidden h-[62vh] max-h-[500px] w-auto max-w-full object-contain mb-2 drop-shadow-[0_0_30px_rgba(220,38,38,0.5)] rounded-xl">
+            <div class="w-full lg:w-[55%] flex flex-col items-start justify-center min-h-0">
+
+                <!-- MOBILE LOGO: scales with viewport height, never overflows -->
+                <img src="logo.png" alt="Nexzora Logo" class="block lg:hidden w-auto max-w-[70%] object-contain mb-[1dvh] drop-shadow-[0_0_30px_rgba(220,38,38,0.5)] rounded-xl" style="height: clamp(70px, 24dvh, 260px);">
 
                 <!-- Eyebrow Text -->
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="h-[1px] w-8 lg:w-12 bg-red-600"></div>
-                    <p class="text-red-500 tracking-[0.2em] lg:tracking-[0.3em] text-[10px] sm:text-xs font-bold uppercase">
+                <div class="flex items-center gap-3 mb-[0.6dvh]">
+                    <div class="h-[1px] w-8 lg:w-12 bg-red-600 flex-shrink-0"></div>
+                    <p class="text-red-500 tracking-[0.2em] lg:tracking-[0.3em] font-bold uppercase" style="font-size: clamp(9px, 1.6dvh, 13px);">
                         The Pinnacle of A/L Education
                     </p>
                 </div>
-                
+
                 <!-- Main Heading -->
-                <h1 class="font-elegant text-3xl sm:text-5xl lg:text-[5.5rem] text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.05] mb-2 sm:mb-3 drop-shadow-2xl">
+                <h1 class="font-elegant text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.05] mb-[1dvh] drop-shadow-2xl" style="font-size: clamp(1.6rem, 6.5dvh, 5.5rem);">
                     Nexzora Platform.
                 </h1>
-                
+
                 <!-- Description -->
-                <p class="text-gray-400 text-xs sm:text-sm lg:text-base max-w-xl leading-relaxed mb-4 sm:mb-5 font-light tracking-wide border-l-2 border-white/20 pl-4">
+                <p class="text-gray-400 max-w-xl leading-relaxed mb-[1.6dvh] font-light tracking-wide border-l-2 border-white/20 pl-4" style="font-size: clamp(11px, 1.8dvh, 16px);">
                     Experience an elite learning ecosystem. Gain exclusive access to meticulously crafted study packs, interactive live classes, and highly advanced AI-powered tools engineered for top-tier success.
                 </p>
 
                 <!-- Google Sign In Button -->
-                <button class="flex items-center justify-center gap-3 bg-white text-black px-7 sm:px-9 py-2.5 sm:py-3 lg:py-3.5 rounded-full font-bold transition-all hover:bg-gray-200 hover:scale-105 w-full sm:w-auto text-xs sm:text-sm tracking-[0.1em] shadow-[0_0_20px_rgba(255,255,255,0.25)] border border-gray-300">
-                    <!-- Google 'G' Logo SVG -->
-                    <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <button class="btn-glow flex items-center justify-center gap-3 bg-white text-black rounded-full font-bold transition-all hover:bg-gray-200 hover:scale-105 w-full sm:w-auto tracking-[0.1em] border border-gray-300" style="padding: clamp(8px, 1.6dvh, 14px) clamp(20px, 4dvh, 36px); font-size: clamp(11px, 1.6dvh, 14px);">
+                    <svg class="flex-shrink-0" style="width: clamp(16px, 2.2dvh, 20px); height: clamp(16px, 2.2dvh, 20px);" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
                         <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
                         <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
@@ -140,32 +147,50 @@
                     </svg>
                     GOOGLE SIGN IN
                 </button>
+
+                <!-- Stats (mobile/tablet): compact row, always visible above the fold -->
+                <div class="flex lg:hidden items-center gap-4 sm:gap-6 border-t border-white/10 mt-[1.6dvh] pt-[1.2dvh] w-full">
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold font-elegant" style="font-size: clamp(13px, 2dvh, 18px);">10K+</span>
+                        <span class="text-gray-500 tracking-widest uppercase" style="font-size: clamp(7px, 1.1dvh, 10px);">Active Students</span>
+                    </div>
+                    <div class="w-[1px] bg-white/10 self-stretch"></div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold font-elegant" style="font-size: clamp(13px, 2dvh, 18px);">50+</span>
+                        <span class="text-gray-500 tracking-widest uppercase" style="font-size: clamp(7px, 1.1dvh, 10px);">Premium Packs</span>
+                    </div>
+                    <div class="w-[1px] bg-white/10 self-stretch"></div>
+                    <div class="flex flex-col">
+                        <span class="text-red-500 font-bold font-elegant" style="font-size: clamp(13px, 2dvh, 18px);">AI</span>
+                        <span class="text-gray-500 tracking-widest uppercase" style="font-size: clamp(7px, 1.1dvh, 10px);">Insights</span>
+                    </div>
+                </div>
             </div>
 
             <!-- RIGHT SIDE: Desktop Logo (Visible ONLY on Desktop, big and glowing) -->
-            <div class="hidden lg:flex w-[45%] justify-end relative items-center">
-                <img src="https://raw.githubusercontent.com/nextdeveloperdev/TEST/refs/heads/main/logo.png" alt="Nexzora Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.3)] rounded-2xl z-10">
+            <div class="hidden lg:flex w-[45%] h-full justify-end relative items-center">
+                <img src="https://raw.githubusercontent.com/nextdeveloperdev/TEST/refs/heads/main/logo.png" alt="Nexzora Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.3)] rounded-2xl z-10" style="max-height: 60dvh;">
                 <div class="absolute inset-0 bg-red-600/15 blur-[90px] rounded-full w-4/5 h-4/5 m-auto z-0"></div>
             </div>
 
         </div>
 
         <!-- Bottom Stats (Desktop only) -->
-        <div class="hidden lg:block lg:absolute lg:bottom-5 mt-10 lg:mt-0 left-0 z-10 w-full pr-5">
-            <div class="flex items-center gap-4 sm:gap-8 border-t border-white/10 pt-3 max-w-4xl">
+        <div class="hidden lg:block absolute z-10 w-full left-0 px-24" style="bottom: 2dvh;">
+            <div class="flex items-center gap-8 border-t border-white/10 pt-3 max-w-4xl">
                 <div class="flex flex-col">
-                    <span class="text-white font-bold text-sm sm:text-lg font-elegant">10K+</span>
-                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Active Students</span>
+                    <span class="text-white font-bold text-lg font-elegant">10K+</span>
+                    <span class="text-gray-500 text-[10px] tracking-widest uppercase">Active Students</span>
                 </div>
-                <div class="h-6 sm:h-8 w-[1px] bg-white/10"></div>
+                <div class="h-8 w-[1px] bg-white/10"></div>
                 <div class="flex flex-col">
-                    <span class="text-white font-bold text-sm sm:text-lg font-elegant">50+</span>
-                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Premium Packs</span>
+                    <span class="text-white font-bold text-lg font-elegant">50+</span>
+                    <span class="text-gray-500 text-[10px] tracking-widest uppercase">Premium Packs</span>
                 </div>
-                <div class="h-6 sm:h-8 w-[1px] bg-white/10"></div>
+                <div class="h-8 w-[1px] bg-white/10"></div>
                 <div class="flex flex-col">
-                    <span class="text-red-500 font-bold text-sm sm:text-lg font-elegant">AI</span>
-                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Insights</span>
+                    <span class="text-red-500 font-bold text-lg font-elegant">AI</span>
+                    <span class="text-gray-500 text-[10px] tracking-widest uppercase">Insights</span>
                 </div>
             </div>
         </div>
