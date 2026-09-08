@@ -2,153 +2,193 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexzora.lk - A/L LMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nexzora.lk - Premium A/L Platform</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter (Sans) and Playfair Display (Serif for luxury look) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #000000; 
+            background-color: #030303; 
             color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            height: 100dvh; 
         }
         
-        /* Font class for the elegant main heading */
         .font-elegant {
             font-family: 'Playfair Display', serif;
         }
+
+        .glass-nav {
+            background: rgba(3, 3, 3, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-red-900 selection:text-white">
+<body class="antialiased selection:bg-red-600 selection:text-white relative">
 
     <!-- Navigation Bar -->
-    <nav class="absolute w-full z-50 top-0 py-6 px-6 sm:px-12 lg:px-24 flex justify-between items-center border-b border-white/10">
-        <!-- Logo -->
+    <nav class="absolute w-full z-50 top-0 py-4 px-5 sm:px-12 lg:px-24 flex justify-between items-center glass-nav">
+        <!-- Logo Text -->
         <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-            <span class="font-bold text-lg tracking-[0.15em] uppercase text-white">
-            NEXZORA.LK<span class="text-red-600"></span>
+            <span class="font-bold text-lg sm:text-xl tracking-[0.2em] uppercase text-white drop-shadow-md">
+            <span class="text-red-600">NEXZORA</span>.LK
             </span>
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden lg:flex space-x-10 items-center font-medium text-gray-300 text-sm tracking-wider">
-            <a href="#" class="hover:text-white transition-colors">Home</a>
-            <a href="#features" class="hover:text-white transition-colors">Features</a>
-            <a href="#streams" class="hover:text-white transition-colors">Courses</a>
-            <a href="#support" class="hover:text-white transition-colors">Support</a>
+        <div class="hidden lg:flex space-x-8 items-center font-medium text-gray-400 text-xs sm:text-sm tracking-widest uppercase">
+            <a href="#" class="hover:text-white transition-colors duration-300">Home</a>
+            <a href="#features" class="hover:text-white transition-colors duration-300">Features</a>
+            <a href="#streams" class="hover:text-white transition-colors duration-300">Courses</a>
+            <a href="#support" class="hover:text-white transition-colors duration-300">Support</a>
         </div>
 
         <!-- Right Side: Social Icons & Sign In (Desktop) -->
         <div class="hidden lg:flex items-center space-x-6">
             <div class="flex items-center space-x-4">
-                <a href="#" class="text-gray-300 hover:text-blue-500 transition-colors text-lg" aria-label="Facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-red-500 transition-colors text-lg" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
+                <a href="#" class="text-gray-400 hover:text-[#1877F2] transition-colors duration-300 text-lg"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors duration-300 text-lg"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <button class="bg-white text-black px-7 py-2.5 rounded-full font-semibold transition-all hover:bg-gray-200 text-sm tracking-wide">
+            <button class="bg-gradient-to-r from-red-600 to-red-700 text-white px-7 py-2.5 rounded-full font-bold text-xs tracking-[0.15em] uppercase btn-glow border border-red-500/30">
                 Sign In
             </button>
         </div>
         
-        <!-- Mobile Actions (Sign In + Menu Toggle) -->
+        <!-- Mobile Actions -->
         <div class="flex lg:hidden items-center space-x-4">
-            <button class="bg-white text-black px-5 py-2 rounded-full font-semibold transition-all hover:bg-gray-200 text-xs sm:text-sm tracking-wide">
+            <button class="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-2 rounded-full font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase btn-glow border border-red-500/30">
                 Sign In
             </button>
-            <button id="mobile-menu-btn" class="text-white text-2xl focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
+            <button id="mobile-menu-btn" class="text-white text-xl focus:outline-none hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-black/95 backdrop-blur-lg absolute w-full left-0 top-[85px] z-50 border-b border-white/10 shadow-2xl">
-        <div class="flex flex-col px-6 py-6 space-y-4 font-medium text-gray-300 tracking-wider">
-            <a href="#" class="block hover:text-white py-2 border-b border-white/5">Home</a>
-            <a href="#features" class="block hover:text-white py-2 border-b border-white/5">Features</a>
-            <a href="#streams" class="block hover:text-white py-2 border-b border-white/5">Courses</a>
-            <a href="#support" class="block hover:text-white py-2 border-b border-white/5">Support</a>
-            
-            <!-- Mobile Social Icons -->
-            <div class="flex space-x-6 pt-2">
-                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa-brands fa-youtube"></i></a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0a0a0a]/98 backdrop-blur-2xl absolute w-full left-0 top-[65px] z-40 border-b border-white/5 shadow-2xl">
+        <div class="flex flex-col px-6 py-6 space-y-4 font-medium text-gray-400 tracking-widest uppercase text-xs">
+            <a href="#" class="block hover:text-white transition-colors">Home</a>
+            <a href="#" class="block hover:text-white transition-colors">Features</a>
+            <a href="#" class="block hover:text-white transition-colors">Courses</a>
+            <a href="#" class="block hover:text-white transition-colors">Support</a>
+            <div class="flex space-x-6 pt-4 border-t border-white/10">
+                <a href="#" class="text-gray-400 hover:text-[#1877F2] text-xl"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-[#FF0000] text-xl"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- 2. Hero Section (Left-Aligned, Elegant Layout) -->
-    <section class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black">
+    <!-- Main Content Section -->
+    <section class="relative h-full flex flex-col justify-center px-5 sm:px-12 lg:px-24 w-full max-w-[1400px] mx-auto pt-8 sm:pt-10 lg:pt-12">
         
-        <!-- Video Background Layer -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80 pointer-events-none z-0">
-            <!-- Ensure your video is named 'animation.mp4' in the same folder -->
-            <source src="https://45.77.46.101:29643/down/S.mp4" type="video/mp4">
-        </video>
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-[10%] right-[10%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] rounded-full bg-red-600/15 blur-[90px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-[10%] left-[5%] w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] rounded-full bg-white/5 blur-[110px] pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] z-0"></div>
 
-        <!-- Overlay for better text readability -->
-        <div class="absolute inset-0 z-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none"></div>
+        <!-- Grid Layout -->
+        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full gap-4 lg:gap-16">
+            
+            <!-- LEFT SIDE: Text Content (And Mobile Image) -->
+            <div class="w-full lg:w-[55%] flex flex-col items-start">
+                
+                <!-- MOBILE LOGO (Visible ONLY on Mobile/Tablet, right above "The Pinnacle...") -->
+                <img src="logo.png" alt="Nexzora Logo" class="block lg:hidden w-56 sm:w-64 h-auto object-contain mb-1 drop-shadow-[0_0_15px_rgba(220,38,38,0.4)] rounded-xl">
 
-        <!-- Main Content (Left Aligned) -->
-        <div class="relative z-10 w-full px-6 sm:px-12 lg:px-24 flex flex-col items-start mt-20">
-            
-            <!-- Eyebrow Text -->
-            <p class="text-red-500 tracking-[0.2em] text-xs sm:text-sm font-bold uppercase mb-4 drop-shadow-md">
-                Next Level A/L Education
-            </p>
-            
-            <!-- Elegant Main Heading -->
-            <h1 class="font-elegant text-5xl sm:text-7xl lg:text-[6.5rem] text-white leading-[1.1] mb-6 drop-shadow-lg">
-                Nexzora <br> Platform
-            </h1>
-            
-            <!-- Description Paragraph -->
-            <p class="text-gray-300 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-10 drop-shadow-md font-light">
-                A premium learning experience for A/L Subject. Access meticulously crafted study packs, interactive live classes, and AI-powered tools designed to guarantee your success.
-            </p>
+                <!-- Eyebrow Text -->
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="h-[1px] w-8 lg:w-12 bg-red-600"></div>
+                    <p class="text-red-500 tracking-[0.2em] lg:tracking-[0.3em] text-[10px] sm:text-xs font-bold uppercase">
+                        The Pinnacle of A/L Education
+                    </p>
+                </div>
+                
+                <!-- Main Heading -->
+                <h1 class="font-elegant text-3xl sm:text-5xl lg:text-[5.5rem] text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.05] mb-2 sm:mb-3 drop-shadow-2xl">
+                    Nexzora Platform.
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-gray-400 text-xs sm:text-sm lg:text-base max-w-xl leading-relaxed mb-4 sm:mb-5 font-light tracking-wide border-l-2 border-white/20 pl-4">
+                    Experience an elite learning ecosystem. Gain exclusive access to meticulously crafted study packs, interactive live classes, and highly advanced AI-powered tools engineered for top-tier success.
+                </p>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
-                 <button class="bg-white text-black px-8 py-3.5 rounded-full font-semibold transition-all hover:bg-gray-200 w-full sm:w-auto text-sm tracking-wide">
-                    Explore Store
-                </button>
-                <button class="text-white font-medium hover:text-gray-300 transition-colors flex items-center gap-2 text-sm tracking-wide border-b border-transparent hover:border-white pb-1">
-                    Live Classes <i class="fa-solid fa-arrow-right text-xs"></i>
+                <!-- Google Sign In Button -->
+                <button class="flex items-center justify-center gap-3 bg-white text-black px-7 sm:px-9 py-2.5 sm:py-3 lg:py-3.5 rounded-full font-bold transition-all hover:bg-gray-200 hover:scale-105 w-full sm:w-auto text-xs sm:text-sm tracking-[0.1em] shadow-[0_0_20px_rgba(255,255,255,0.25)] border border-gray-300">
+                    <!-- Google 'G' Logo SVG -->
+                    <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                    GOOGLE SIGN IN
                 </button>
             </div>
+
+            <!-- RIGHT SIDE: Desktop Logo (Visible ONLY on Desktop, big and glowing) -->
+            <div class="hidden lg:flex w-[45%] justify-end relative items-center">
+                <img src="logo.png" alt="Nexzora Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.3)] rounded-2xl z-10">
+                <div class="absolute inset-0 bg-red-600/15 blur-[90px] rounded-full w-4/5 h-4/5 m-auto z-0"></div>
+            </div>
+
         </div>
 
-        <!-- Bottom Footer/Stats Text -->
-        <div class="absolute bottom-10 left-6 sm:left-12 lg:left-24 z-10">
-            <p class="text-gray-400 text-[10px] sm:text-xs tracking-[0.25em] uppercase font-medium flex flex-wrap gap-4 sm:gap-8">
-                <span>Study Packs</span>
-                <span class="hidden sm:inline">|</span>
-                <span>10000+ Students</span>
-                <span class="hidden sm:inline">|</span>
-                <span>AI Powered</span>
-            </p>
+        <!-- Bottom Stats -->
+        <div class="absolute bottom-3 sm:bottom-5 left-5 sm:left-12 lg:left-24 z-10 w-full pr-5">
+            <div class="flex items-center gap-4 sm:gap-8 border-t border-white/10 pt-3 max-w-4xl">
+                <div class="flex flex-col">
+                    <span class="text-white font-bold text-sm sm:text-lg font-elegant">10K+</span>
+                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Active Students</span>
+                </div>
+                <div class="h-6 sm:h-8 w-[1px] bg-white/10"></div>
+                <div class="flex flex-col">
+                    <span class="text-white font-bold text-sm sm:text-lg font-elegant">50+</span>
+                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Premium Packs</span>
+                </div>
+                <div class="h-6 sm:h-8 w-[1px] bg-white/10"></div>
+                <div class="flex flex-col">
+                    <span class="text-red-500 font-bold text-sm sm:text-lg font-elegant">AI</span>
+                    <span class="text-gray-500 text-[8px] sm:text-[10px] tracking-widest uppercase">Insights</span>
+                </div>
+            </div>
         </div>
     </section>
 
-   
     <!-- Mobile Menu Script -->
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')){
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            } else {
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            }
         });
     </script>
 </body>
