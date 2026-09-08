@@ -21,8 +21,7 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
-            height: 100dvh; 
+            min-height: 100dvh; 
         }
         
         .font-elegant {
@@ -98,7 +97,7 @@
     </div>
 
     <!-- Main Content Section -->
-    <section class="relative h-full flex flex-col justify-center px-5 sm:px-12 lg:px-24 w-full max-w-[1400px] mx-auto pt-8 sm:pt-10 lg:pt-12">
+    <section class="relative flex flex-col justify-start lg:justify-center px-5 sm:px-12 lg:px-24 w-full max-w-[1400px] mx-auto pt-20 pb-6 lg:pt-12 lg:pb-0 lg:min-h-[100dvh]">
         
         <!-- Ambient Background Glows -->
         <div class="absolute top-[10%] right-[10%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] rounded-full bg-red-600/15 blur-[90px] pointer-events-none z-0"></div>
@@ -112,7 +111,7 @@
             <div class="w-full lg:w-[55%] flex flex-col items-start">
                 
                 <!-- MOBILE LOGO (Visible ONLY on Mobile/Tablet, right above "The Pinnacle...") -->
-                <img src="logo.png" alt="Nexzora Logo" class="block lg:hidden w-56 sm:w-64 h-auto object-contain mb-1 drop-shadow-[0_0_15px_rgba(220,38,38,0.4)] rounded-xl">
+                <img src="logo.png" alt="Nexzora Logo" class="block lg:hidden h-[62vh] max-h-[500px] w-auto max-w-full object-contain mb-2 drop-shadow-[0_0_30px_rgba(220,38,38,0.5)] rounded-xl">
 
                 <!-- Eyebrow Text -->
                 <div class="flex items-center gap-3 mb-2">
@@ -147,14 +146,14 @@
 
             <!-- RIGHT SIDE: Desktop Logo (Visible ONLY on Desktop, big and glowing) -->
             <div class="hidden lg:flex w-[45%] justify-end relative items-center">
-                <img src="https://raw.githubusercontent.com/nextdeveloperdev/TEST/refs/heads/main/logo.png" alt="Nexzora Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.3)] rounded-2xl z-10">
+                <img src="logo.png" alt="Nexzora Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.3)] rounded-2xl z-10">
                 <div class="absolute inset-0 bg-red-600/15 blur-[90px] rounded-full w-4/5 h-4/5 m-auto z-0"></div>
             </div>
 
         </div>
 
         <!-- Bottom Stats -->
-        <div class="absolute bottom-3 sm:bottom-5 left-5 sm:left-12 lg:left-24 z-10 w-full pr-5">
+        <div class="relative lg:absolute lg:bottom-5 mt-10 lg:mt-0 left-0 z-10 w-full pr-5">
             <div class="flex items-center gap-4 sm:gap-8 border-t border-white/10 pt-3 max-w-4xl">
                 <div class="flex flex-col">
                     <span class="text-white font-bold text-sm sm:text-lg font-elegant">10K+</span>
